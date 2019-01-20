@@ -1,0 +1,42 @@
+{
+  "name": "slate-collab",
+  "version": "0.0.1",
+  "main": "dist/slate-collab.cjs.js",
+  "module": "dist/slate-collab.esm.js",
+  "browser": "dist/slate-collab.umd.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tentmakerco/slate-collab"
+  },
+  "devDependencies": {
+    "@babel/core": "7.2.2",
+    "@babel/preset-env": "7.2.3",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "23.6.0",
+    "jest": "23.6.0",
+    "rollup": "1.1.0",
+    "rollup-plugin-babel": "4.3.1",
+    "rollup-plugin-commonjs": "9.2.0",
+    "rollup-plugin-node-resolve": "4.0.0"
+  },
+  "scripts": {
+    "prepare": "npm run build",
+    "build": "rollup -c",
+    "watch": "rollup -c -w",
+    "test": "jest && npm run build"
+  },
+  "renovate": {
+    "extends": [
+      "config:js-lib"
+    ],
+    "automerge": true,
+    "major": {
+      "automerge": false
+    },
+    "automergeType": "branch"
+  },
+  "files": [
+    "dist"
+  ]
+}
