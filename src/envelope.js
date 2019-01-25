@@ -1,35 +1,34 @@
-/*
-  constructor(props) {
-    super(props);
-
-    this.envelope = new Envelope({ value: initialValue });
-  }
-
-  componentDidMount() {
-    incoming.on('message', (envelope) => {
-      this.envelope = this.envelope.merge(envelope);
-      this.setState({ value: this.envelope.value() });
-    });
-  }
-
-  onChange({ value, operations }) {
-    this.envelope = this.envelope.apply(operations);
-    outgoing.emit('message', this.envelope.toJSON());
-    this.setState({ value: this.envelope.value() });
-  }
-*/
+import { Value } from 'slate';
+import { init, load, change, save } from 'automerge';
 
 class Envelope {
+  constructor(initializer) {
+    if (typeof initializer === 'string') {
+      this._doc = load(initializer);
+      const { document } = this._doc;
+      this._value = Value.fromJSON({ document });
+    } else if (initializer instanceof Value) {
+      this._doc = change(init(), 'initialize', doc => {
+        doc.document = initializer.document.toJSON();
+      });
+      this._value = initializer;
+    } else {
+      throw new Error("An Envelope must be initialized with either a serialized Envelope string or a Slate Value.");
+    }
+  }
+
   apply() {
   }
 
   merge() {
   }
 
-  toJSON() {
+  serialize() {
+    return save(this._doc);
   }
 
   value() {
+    return this._value;
   }
 
   undo() {

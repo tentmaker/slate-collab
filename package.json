@@ -18,7 +18,8 @@
     "rollup": "1.1.0",
     "rollup-plugin-babel": "4.3.1",
     "rollup-plugin-commonjs": "9.2.0",
-    "rollup-plugin-node-resolve": "4.0.0"
+    "rollup-plugin-node-resolve": "4.0.0",
+    "slate": "^0.44.9"
   },
   "scripts": {
     "prepare": "npm run build",
@@ -38,5 +39,11 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "dependencies": {
+    "automerge": "^0.9.2"
+  },
+  "peerDependencies": {
+    "slate": ">= 0.44.0"
+  }
 }
