@@ -1,7 +1,7 @@
 import { Value } from 'slate';
 import { init } from 'automerge';
 
-import Envelope from './envelope';
+import { Envelope } from './main';
 
 const value = Value.fromJSON({
   document: {

@@ -1,5 +1,1 @@
-export default function rollupJestBoilerplate(string) {
-  return {
-    awesomeString: string,
-  };
-}
+export { default as Envelope } from './envelope';
