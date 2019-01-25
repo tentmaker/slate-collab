@@ -11,6 +11,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.2.2",
+    "@babel/plugin-transform-react-jsx": "^7.3.0",
     "@babel/preset-env": "7.2.3",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "23.6.0",
@@ -19,7 +20,8 @@
     "rollup-plugin-babel": "4.3.1",
     "rollup-plugin-commonjs": "9.2.0",
     "rollup-plugin-node-resolve": "4.0.0",
-    "slate": "^0.44.9"
+    "slate": "^0.44.9",
+    "slate-hyperscript": "^0.11.24"
   },
   "scripts": {
     "prepare": "npm run build",

@@ -1,29 +1,17 @@
+/** @jsx h */
+
 import { Value } from 'slate';
-import { init } from 'automerge';
+import h from './h';
 
 import { Envelope } from './main';
 
-const value = Value.fromJSON({
-  document: {
-    nodes: [
-      {
-        object: 'block',
-        type: 'line',
-        nodes: [
-          {
-            object: 'text',
-            leaves: [
-              {
-                object: 'leaf',
-                text: 'foobar',
-              },
-            ],
-          },
-        ],
-      },
-    ],
-  },
-});
+const value = (
+  <value>
+    <document>
+      <line>foobar</line>
+    </document>
+  </value>
+);
 
 it('should initialize with a slate value', () => {
   const envelope = new Envelope(value);
